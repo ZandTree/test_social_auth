@@ -1,0 +1,257 @@
+Заголовок ошибки
+TypeError at /admin/users/user/
+from_db_value() missing 1 required positional argument: 'context'
+
+Request Method:	POST
+Request URL:	http://127.0.0.1:8000/admin/users/user/
+Django Version:	3.1
+Exception Type:	TypeError
+
+Exception Value:
+from_db_value() missing 1 required positional argument: 'context'
+
+1.
+C:\Users\....lib\site-packages\django\core\handlers\exception.py, line 47, in inner
+Local vars:
+exc
+TypeError("from_db_value() missing 1 required positional argument: 'context'")
+get_response
+<bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x00000286BEFD70C8>>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+2.
+C:\Users\...lib\site-packages\django\core\handlers\base.py, line 179, in _get_response
+response = wrapped_callback(request, *callback_args, **callback_kwargs)
+Local vars:
+callback
+<function ModelAdmin.changelist_view at 0x00000286C0492EE8>
+callback_args
+()
+callback_kwargs
+{}
+middleware_method
+<bound method CsrfViewMiddleware.process_view of <django.middleware.csrf.CsrfViewMiddleware object at 0x00000286C071F0C8>>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+response
+None
+self
+<django.core.handlers.wsgi.WSGIHandler object at 0x00000286BEFD70C8>
+wrapped_callback
+<function ModelAdmin.changelist_view at 0x00000286C0492EE8>
+
+3.
+C:\Users\..lib\site-packages\django\contrib\admin\options.py, line 614, in wrapper
+return self.admin_site.admin_view(view)(*args, **kwargs)
+Local vars
+args
+(<WSGIRequest: POST '/admin/users/user/'>,)
+kwargs
+{}
+self
+<users.admin.UserAdmin object at 0x00000286BF9A86C8>
+view
+<bound method ModelAdmin.changelist_view of <users.admin.UserAdmin object at 0x00000286BF9A86C8>>
+
+4. C:\Users\lib\site-packages\django\utils\decorators.py, line 130, in _wrapped_view
+response = view_func(request, *args, **kwargs)
+Local vars
+args
+()
+kwargs
+{}
+middleware
+<django.middleware.csrf.CsrfViewMiddleware object at 0x00000286C07A9148>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+result
+None
+view_func
+<function AdminSite.admin_view.<locals>.inner at 0x00000286C08D8B88>
+
+5. C:\Users\...\lib\site-packages\django\views\decorators\cache.py, line 44, in _wrapped_view_func
+response = view_func(request, *args, **kwargs)
+Local vars:
+args
+()
+kwargs
+{}
+request
+<WSGIRequest: POST '/admin/users/user/'>
+view_func
+<function AdminSite.admin_view.<locals>.inner at 0x00000286C08D8438>
+
+6. C:\Users\...\lib\site-packages\django\contrib\admin\sites.py, line 233, in inner
+return view(request, *args, **kwargs)
+Local vars:
+args
+()
+kwargs
+{}
+request
+<WSGIRequest: POST '/admin/users/user/'>
+self
+<django.contrib.admin.sites.AdminSite object at 0x00000286BF939288>
+view
+<bound method ModelAdmin.changelist_view of <users.admin.UserAdmin object at 0x00000286BF9A86C8>>
+
+7.C:\Users\...\lib\site-packages\django\utils\decorators.py, line 43, in _wrapper
+return bound_method(*args, **kwargs)
+Local vars:
+args
+(<WSGIRequest: POST '/admin/users/user/'>,)
+bound_method
+<function make_middleware_decorator.<locals>._make_decorator.<locals>._decorator.<locals>._wrapped_view at 0x00000286BF8ADEE8>
+dec
+<function make_middleware_decorator.<locals>._make_decorator.<locals>._decorator at 0x00000286BF1B8318>
+decorators
+[<function make_middleware_decorator.<locals>._make_decorator.<locals>._decorator at 0x00000286BF1B8318>]
+kwargs
+{}
+method
+<function ModelAdmin.changelist_view at 0x00000286BF1C0DC8>
+self
+<users.admin.UserAdmin object at 0x00000286BF9A86C8>
+
+8. C:\Users\...\lib\site-packages\django\utils\decorators.py, line 130, in _wrapped_view
+response = view_func(request, *args, **kwargs)
+Local vars:
+args
+()
+kwargs
+{}
+middleware
+<django.middleware.csrf.CsrfViewMiddleware object at 0x00000286C0D6B488>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+result
+None
+view_func
+functools.partial(<bound method ModelAdmin.changelist_view of <users.admin.UserAdmin object at 0x00000286BF9A86C8>>)
+
+9. C:\Users\...\lib\site-packages\django\contrib\admin\options.py, line 1719, in changelist_view
+response = self.response_action(request, queryset=cl.get_queryset(request))
+Local vars:
+ERROR_FLAG
+'e'
+action_failed
+False
+actions
+{'delete_selected': (<function delete_selected at 0x00000286BF11A0D8>,
+                     'delete_selected',
+                     'Delete selected %(verbose_name_plural)s')}
+app_label
+'users'
+cl
+<django.contrib.admin.views.main.ChangeList object at 0x00000286C0D6B288>
+extra_context
+None
+opts
+<Options for User>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+selected
+['4']
+self
+<users.admin.UserAdmin object at 0x00000286BF9A86C8>
+
+10.C:\...\lib\site-packages\django\contrib\admin\options.py, line 1402, in response_action
+response = func(self, request, queryset)
+Local vars:
+action
+'delete_selected'
+action_form
+<ActionForm bound=True, valid=True, fields=(action;select_across)>
+action_index
+0
+data
+{'action': 'delete_selected',
+ 'csrfmiddlewaretoken': 'CooQsdUAEFk2k0cpoLwBWH2MEulESj3Ug0rBSz3X18yXFoqwjQxEQPANVtPK5quE',
+ 'select_across': '0'}
+func
+<function delete_selected at 0x00000286BF11A0D8>
+queryset
+<QuerySet [<User: tspan2017@gmail.com>]>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+select_across
+False
+selected
+['4']
+self
+<users.admin.UserAdmin object at 0x00000286BF9A86C8>
+11.C:\...lib\site-packages\django\contrib\admin\actions.py, line 28, in delete_selected
+deletable_objects, model_count, perms_needed, protected = modeladmin.get_deleted_objects(queryset, request)
+
+Local vars:
+app_label
+'users'
+modeladmin
+<users.admin.UserAdmin object at 0x00000286BF9A86C8>
+opts
+<Options for User>
+queryset
+<QuerySet [<User: zoo2017@gmail.com>]>
+request
+<WSGIRequest: POST '/admin/users/user/'>
+
+12.C:\...\lib\site-packages\django\contrib\admin\options.py, line 1841, in get_deleted_objects
+return get_deleted_objects(objs, request, self.admin_site)
+
+...............
+C:\...\lib\site-packages\django\db\models\deletion.py, line 295, in collec
+# the rare cases where .related_objects is overridden anyway.
+                if not (sub_objs.query.select_related or self._has_signal_listeners(related_model)):
+                    referenced_fields = set(chain.from_iterable(
+                        (rf.attname for rf in rel.field.foreign_related_fields)
+                        for rel in get_candidate_relations_to_delete(related_model._meta)
+                    ))
+                    sub_objs = sub_objs.only(*tuple(referenced_fields))
+                if sub_objs: …
+                    try:
+                        field.remote_field.on_delete(self, field, sub_objs, self.using)
+                    except ProtectedError as error:
+                        key = "'%s.%s'" % (field.model.__name__, field.name)
+                        protected_objects[key] += error.protected_objects
+        if protected_objects:
+Local vars:
+batch
+[<User: zoo2017@gmail.com>]
+batches
+[[<User: zoo2017@gmail.com>]]
+collect_related
+True
+concrete_model
+<class 'users.models.User'>
+fail_on_restricted
+True
+field
+<django.db.models.fields.related.ForeignKey: user>
+keep_parents
+False
+model
+<class 'users.models.User'>
+model_fast_deletes
+defaultdict(<class 'list'>, {})
+new_objs
+[<User: zoo2017@gmail.com>]
+nullable
+False
+objs
+<QuerySet [<User: zoo2017@gmail.com>]>
+protected_objects
+defaultdict(<class 'list'>, {})
+related
+<ManyToOneRel: social_django.usersocialauth>
+related_model
+<class 'social_django.models.UserSocialAuth'>
+reverse_dependency
+False
+self
+<django.contrib.admin.utils.NestedObjects object at 0x00000286C07CEC48>
+source
+None
+source_attr
+None
+sub_objs
+Error in formatting: TypeError: from_db_value() missing 1 required positional argument: 'context'
